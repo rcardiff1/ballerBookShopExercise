@@ -1,0 +1,30 @@
+body {
+    background-color: white;
+    hieght: auto;
+}
+
+.jumbotron {
+    width: 80%;
+    padding-top: 2%;
+    margin-top: 0;
+    background-color: #C5E3BF;
+    margin: 0 auto;
+    padding-left: 5%;
+}
+
+.book_container {
+    width: 800px;
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 5px;
+}
+
+p {
+    color: green;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}
+
