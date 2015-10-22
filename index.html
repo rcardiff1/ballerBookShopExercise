@@ -29,6 +29,7 @@
 			</nav>
 		</header>
 
+		<!-- This is the jumbotron on the main page -->
 		<div class="jumbotron" style="background-color: #C5E3BF">
 		  <h1>Hello, Ballers!</h1>
 		  <p>...</p>
@@ -40,27 +41,50 @@
 			  </button>
 			  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 			    <li><a id="view_all_books_button">View All Books</a></li>
-			    <li><a href="#">Search Books By Title</a></li>
+			    <li><a id="search_book_title" href="#">Search Books By Title</a></li>
+			    <li><a id="view_local_weather" href="#">View Local Weather</a></li>
 			  </ul>
 			</div>
 		</div>
 
-		<!-- This is where the 'Search box' appends -->
-		<div class="row">
-			  <div class="col-lg-4">
-			  </div><!-- /.col-lg-4 -->
-			  <div class="col-lg-4">
-			    <div class="input-group">
-			      <input id="search_title_input" type="text" class="form-control" placeholder="Search for...">
-			      <span class="input-group-btn">
-			        <button id="search_title_button" class="btn btn-default" type="button">Search!</button>
-			      </span>
-			    </div><!-- /input-group -->
-			  </div><!-- /.col-lg-4 -->
-			  <div class="col-lg-4">
-			  </div><!-- /.col-lg-4 -->
-		</div><!-- /.row -->
+		<!-- This is where the data appends to -->
+		<div id="weather_container">
+			<div class="row">
+				<div class="col-3">
+					<div id="weather_city"></div>
+				</div>
+				<div class="col-2">
+					<div class="weather_forecast" id="weather_description"></div>
+				</div>
+				<div class="col-2">
+					<div class="weather_forecast" id="weather_humidity"></div>
+				</div>
+				<div class="col-3">
+					<div class="weather_forecast" id="weather_wind"></div>
+				</div>
+				<div class="col-2">
+					<div id="weather_temperature"></div>
+				</div>
+			</div>
+		</div>
 
+		<!-- This is where the 'Search box' appends -->
+		<div id="search_container">
+			<div class="row">
+				  <div class="col-lg-4">
+				  </div><!-- /.col-lg-4 -->
+				  <div class="col-lg-4">
+				    <div class="input-group">
+				      <input id="search_title_input" type="text" class="form-control" placeholder="Search for...">
+				      <span class="input-group-btn">
+				        <button id="search_title_button" class="btn btn-default" type="button">Search!</button>
+				      </span>
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-4 -->
+				  <div class="col-lg-4">
+				  </div><!-- /.col-lg-4 -->
+			</div><!-- /.row -->
+		</div>	
          <div class="content-container">
 			<div class="book_container">
 				<!-- This is where the books append to -->

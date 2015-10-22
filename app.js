@@ -50,11 +50,28 @@
 			}
 		};	
 
+		// Weather obj
+		var weather = {
+
+			weather1:   {
+				id : "San*Francisco",
+			   	city : "San Francisco",
+			   	tempurature : "novel",
+				time : "F. Scott Fitzgerald",
+				population : "1,000,000",
+			}	
+		};
+
 	
 		// This function will empty the book_container
 		var empty_book_container = function() {
 			$('.book_container').empty();
-		}
+		};
+
+		var empty_search_container = function() {
+			$('#search_container').hide();
+		};
+		empty_search_container();
 
 
 		//  This function appends books to the main page
@@ -112,7 +129,6 @@
 			search_object_title(books, book_title);
 		});
 
-
 		var search_object_title = function (book_list, title) {
 			for(var book_index in book_list) {
 				if(book_list[book_index].title === title) {
@@ -122,5 +138,57 @@
 				}
 			}
 		};
+
+		// This is a toggle click event that shows the search bar 
+		$('#search_book_title').click(function(event) {
+			$('#search_container').toggle();
+		});
+
+		// This is a toggle click event that shows the weather
+		$('#view_local_weather').click(function(event) {
+			$('#weather_container').toggle();
+		});
+
+
+		// This is an ajax function that GETs the weather data
+		var weather_data = {};
+
+		$.ajax({
+		  method: 'GET',
+		  url: 'http://api.openweathermap.org/data/2.5/weather?q=San+Francisco&APPID=e34a336f00ea195cb222ed6453eb16b9',
+		  success: function(data){
+		  	to_be_run_on_server_response(data);
+		    console.log(data);
+		  },
+		  error: function(jqHXR, status) {
+		  	console.log('ERROR: ', status);
+		  }
+		});
+
+		// This is the temperature converter
+		var temp_converter = function(k_temp) {
+			var f_temp = Math.floor((k_temp * 1.8 - 459.67) + 1);
+			console.log(f_temp);
+			return f_temp
+		};
+
+		// This function appends the weather to the weather container
+		var to_be_run_on_server_response = function(data){
+			var temp = temp_converter(data.main.temp);
+		  $('#weather_city').append('<h4>' + data.name + ' Weather:</h4>');
+		  $('#weather_description').append('<h6>' + data.weather[0].description + '</h6>');
+		  $('#weather_humidity').append('<h6>Humidity is ' + data.main.humidity + '%</h6>');
+		  $('#weather_wind').append('<h6>And the wind is blowing at ' + data.wind.speed + 'mph</h6>');
+		  $('#weather_temperature').append('<h2>' + temp + 'F</h2>');
+		};
+		// to_be_run_on_server_response(data.main.name);
+
+
+
+
+		
+
+
+
 
  });

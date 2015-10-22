@@ -12,6 +12,15 @@ body {
     padding-left: 5%;
 }
 
+#weather_container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.weather_forecast {
+    padding-top: 5px;
+}
+
 .book_container {
     width: 800px;
     margin: 30px auto;
